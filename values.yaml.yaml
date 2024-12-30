@@ -1,0 +1,16 @@
+replicaCount: 1
+
+image:
+  repository: "ravula1246/springboot"
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  name: springboot
+  type: ClusterIP
+  port: 8080
+
+env:
+  SPRING_PROFILES_ACTIVE: "prod"  # Optional: Define any Spring profiles
+
+resources: {}
