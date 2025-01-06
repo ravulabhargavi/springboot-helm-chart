@@ -2,15 +2,21 @@ replicaCount: 1
 
 image:
   repository: "ravula1246/springboot"
-  tag: "latest"
+  tag: "1.0.0"  # Specify the exact version tag
   pullPolicy: IfNotPresent
 
 service:
   name: springboot
-  type: ClusterIP
+  type: ClusterIP  
   port: 8080
 
 env:
-  SPRING_PROFILES_ACTIVE: "prod"  # Optional: Define any Spring profiles
+  SPRING_PROFILES_ACTIVE: "prod"  
 
-resources: {}
+resources:
+  requests:
+    memory: "256Mi"
+    cpu: "500m"
+  limits:
+    memory: "512Mi"
+    cpu: "1"
